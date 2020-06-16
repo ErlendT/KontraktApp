@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Oversikt{% endblock %}
+{% block content %}
+<div class="overviewcontainer">
+    <h2 class="medTitle">
+        Mine Kontrakter
+    </h2>
+    <div class="leftcontent">
+        <div class="contractcontainer">
+
+            {% if all_contracts %}
+            <div class="itemlist">
+                <ul>
+                    {% for contract in all_contracts %}
+                    </li>
+                        <a href="{% url 'KontraktApp:editContract' contract.id %}">
+                            <div class="listitembtn">
+                                <h3 class="contractTitle">{{ contract.title }}</h3>
+                                <p class="contractCustomer">{{ contract.customer.name }}</p>
+                                <div class="contractdates">
+                                    <p class="cd contractcreateddate">Opprettet: {{ contract.creation_date|date:"d/m/y" }}</p>
+                                    <p class="cd contractediteddate">Sist redigert: {{ contract.edited_date|date:"d/m/y" }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% else %}
+            <div>
+                <p class="infotext">
+                    Ingen kontraker ble funnet.<br>
+                    Du kan legge til en ny kontrakt
+                    ved å klikke på knappen til høyre
+                </p>
+            </div>           
+            {% endif %}           
+        </div>     
+    </div>
+    <div class="rightcontent">
+        <a href="{% url 'KontraktApp:editContractNew' %}">
+        <div class="addbutton">Ny kontrakt</div>
+        </a>
+    </div>
+</div>
+{% endblock %}

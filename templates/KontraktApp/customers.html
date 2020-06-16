@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>KontraktApp - Kunder</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'KontraktApp/style.css' %}">
+</head>
+<body>
+    <div class="titlecontainer">
+        <h1>
+            Oversikt - mine kunder  
+        </h1>
+    </div>
+    <div class="maincontent">
+        <div class="leftcontent">
+            <div class="contractcontainer">
+                <h2 class="medTitle">
+                    Mine Kunder
+                </h2>
+                {% if object_list.exists %}
+                <div class="itemlist">
+                    <ul>
+                        {% for customer in all_customers %}
+                        <li><a href="{% url 'KontraktApp:editCustomer' customer.id %}">TEST {{ customer.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% else %}
+                <p class="infotext">
+                    Ingen kunder ble funnet.
+                    Du kan legge til en ny kunde
+                    ved å klikke på knappen til høyre
+                </p>
+                {% endif %}
+                </div>
+            </div>
+            
+        </div>
+        <div class="rightcontent">
+
+        </div>
+    </div>
+</body>

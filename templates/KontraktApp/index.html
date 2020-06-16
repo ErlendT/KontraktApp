@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>KontraktApp - by Thorsen labs</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'KontraktApp/style.css' %}">
+    </head>
+    <body>
+        <div class="formdiv">
+            <form id="loginform" action="{% url 'KontraktApp:login' %}" method="POST">
+                {% csrf_token %}
+                <span>
+                    <label>Brukernavn</label><input type="text" name="usr">
+                </span>
+                <span>
+                    <label for="pswrd">Passord</label><input type="password" name="pswrd">
+                </span>
+                <span>
+                    <label>Logg inn</label><input type="submit">
+                </span>
+            </form>
+
+        </div>
+    </body>
+</html>

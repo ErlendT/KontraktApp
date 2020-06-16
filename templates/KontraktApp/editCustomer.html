@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>KontraktApp - Kunde</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'KontraktApp/style.css' %}">
+</head>
+<body>
+    <div class="titlecontainer">
+        <h1>
+            {{ customer.name }} - {{ customer.id }}
+        </h1>
+    </div>
+    <div class="maincontent">
+        <div class="infotable">
+            <table class="customertable">
+                <tr class="customerInforRow customerAddress">
+                    <td>
+                        Addresse
+                    </td>
+                    <td>
+                        {{ customer.address }}
+                    </td>
+                </tr>
+                <tr class="customerInforRow customerPhone">
+                    <td>
+                        Phone
+                    </td>
+                    <td>
+                        {{ customer.phone }}
+                    </td>
+                </tr>
+                <tr class="customerInforRow customerMail">
+                    <td>
+                        E-post
+                    </td>
+                    <td>
+                        {{ customer.email }}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
